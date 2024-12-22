@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Arabic Article Update API",
+    "description": "API for updating Arabic articles in JSON format based on user-provided prompts using OpenAI's GPT-4.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Update Article",
+      "description": "API endpoint for updating Arabic articles"
+    }
+  ],
+  "paths": {
+    "/update_article": {
+      "post": {
+        "tags": [
+          "Update Article"
+        ],
+        "summary": "Update an Arabic article",
+        "description": "Updates an Arabic article in JSON format based on a user-provided Arabic prompt.",
+        "operationId": "updateArticle",
+        "requestBody": {
+          "description": "Input data in JSON format to update the Arabic article",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "article_json": {
+                    "type": "string",
+                    "description": "The original article in JSON format as a string"
+                  },
+                  "arabic_prompt": {
+                    "type": "string",
+                    "description": "The Arabic prompt to edit or enhance the article"
+                  }
+                },
+                "required": [
+                  "article_json",
+                  "arabic_prompt"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Article updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated_article": {
+                      "type": "object",
+                      "description": "The updated article in JSON format"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, missing required fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
