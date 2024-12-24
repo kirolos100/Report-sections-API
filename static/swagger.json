@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000"
+      "url": "https://reportsectionsapi-f7a8f7a9ecc8d5ce.eastus-01.azurewebsites.net/"
     }
   ],
   "tags": [
