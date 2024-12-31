@@ -56,9 +56,9 @@ def update_arabic_article(article_json, arabic_prompt):
     conversation_history = [
         {
             "role": "system",
-            "content": """You are a professional journalist tasked with editing and enhancing an Arabic article.
-                          The article is structured in a JSON format and you should return the updated JSON with detailed changes.
-                          Follow the user-provided prompt and make necessary adjustments or additions to the content."""
+            "content": """You are a professional journalist tasked with editing and enhancing an Arabic article structure.
+                          The article is structured in a JSON format and you should return the updated JSON with the changes without changing the style of the input json as the content should begin with"هذه النقطة لهذا العنوان ستتحدث عن".
+                          Follow the user-provided prompt and make necessary adjustments."""
         },
         {"role": "user", "content": arabic_prompt},
         {"role": "user", "content": article_json}
