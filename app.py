@@ -58,7 +58,9 @@ def update_arabic_article(article_json, arabic_prompt):
             "role": "system",
             "content": """You are a professional journalist tasked with editing and enhancing an Arabic article structure.
                           The article is structured in a JSON format and you should return the updated JSON with the changes without changing the style of the input json as the content should begin with"هذه النقطة لهذا العنوان ستتحدث عن".
-                          Follow the user-provided prompt and make necessary adjustments."""
+                          Follow the user-provided prompt and make necessary adjustments.
+                          Be sure that the headings in the output Json file was array of objects not array of arrays.
+                          """
         },
         {"role": "user", "content": arabic_prompt},
         {"role": "user", "content": article_json}
