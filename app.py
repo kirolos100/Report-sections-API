@@ -79,9 +79,7 @@ def update_arabic_article(article_json, arabic_prompt):
         if cleaned_response.endswith("```"):
             cleaned_response = cleaned_response[:-3].strip()
 
-        # Convert the response to a JSON object
-        updated_article_json = json.loads(cleaned_response)
-        return updated_article_json
+        return cleaned_response
     except Exception as e:
         return {"error": str(e)}
 
@@ -111,7 +109,7 @@ def update_article():
             return jsonify({"error": "Both 'article_json' and 'arabic_prompt' are required."}), 400
 
         updated_article = update_arabic_article(article_json, arabic_prompt)
-        return jsonify({"updated_article": updated_article})
+        return updated_article, 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
