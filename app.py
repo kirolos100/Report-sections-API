@@ -111,7 +111,8 @@ def update_article():
         updated_article = update_arabic_article(article_json, arabic_prompt)
         return updated_article, 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        updated_article = update_arabic_article(article_json, arabic_prompt)
+        return updated_article, 200
 
 # Root route for testing
 @app.route('/')
