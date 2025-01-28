@@ -64,7 +64,7 @@ def update_arabic_article(article_json, arabic_prompt):
                           Be sure that the headings in the output Json file was array of objects not array of arrays.
                           """
         },
-        {"role": "user", "content": arabic_prompt},
+        {"role": "user", "content": f"""{arabic_prompt} اضف نقاط عن"""},
         {"role": "user", "content": article_json}
     ]
 
