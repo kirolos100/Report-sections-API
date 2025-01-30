@@ -64,6 +64,13 @@ def update_arabic_article(article_json, arabic_prompt):
                           Be sure that the headings in the output Json file was array of objects not array of arrays.
                           """
         },
+        {
+            "role": "system",
+            "content": """
+             انت مسؤل على تعديل هيكل تقرير من خلال اضافة نقاط جديدة او مسح نقاط او تعديل عنوان معين او تعديل المحتوى الذس سيكتب في عنوان معين وكل التعديلات تكون في ظل الاحداث السياسية الاخيرة الحديثة
+                          """
+        },
+        {"role": "user", "content":f" {article_json}خصص جميع التعديلات في ضوء القضية المتناولة في ذلك التقرير"},
         {"role": "user", "content": arabic_prompt},
         {"role": "user", "content": article_json}
     ]
